@@ -1,8 +1,12 @@
-// SEO is now handled in index.htmlimport { Helmet } from 'react-helmet-async';
+// SEO is now handled in index.html// SEO is now handled in index.htmlimport { Helmet } from 'react-helmet-async';
 
-// This is a placeholder component to prevent build errorsimport { generateMetaTags, generateStructuredData } from '../../utils/seo';
+// This is a placeholder component to prevent build errors
 
-export default function SEOHead({ page = {} }) {
+export default function SEOHead({ page = {} }) {// This is a placeholder component to prevent build errorsimport { generateMetaTags, generateStructuredData } from '../../utils/seo';
+
+  return null;
+
+}export default function SEOHead({ page = {} }) {
 
   return null;export default function SEOHead({ page = {} }) {
 
