@@ -14,6 +14,7 @@ import { CartProvider } from './context/CartContext'
 import { ROUTES } from './utils/constants'
 
 function App() {
+  // Force deployment trigger
   return (
     <Router>
       <CartProvider>
