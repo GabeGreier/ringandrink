@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import Layout from './components/layout/Layout'
 import Products from './components/Products'
 import ContactForm from './components/ContactForm'
@@ -81,6 +83,8 @@ function App() {
             <Route path="*" element={<NotFound />} />
         </Routes>
       </CartProvider>
+      <Analytics />
+      <SpeedInsights />
     </Router>
   );
 }
