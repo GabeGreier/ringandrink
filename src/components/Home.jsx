@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import SEOHead from './layout/SEOHead';
 import { ROUTES, SITE_CONFIG } from '../utils/constants';
 
 export default function Home() {
@@ -11,9 +10,7 @@ export default function Home() {
   };
 
   return (
-    <>
-      <SEOHead page={seoProps} />
-      <div className="min-h-screen">
+    <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
           <div 
@@ -53,6 +50,5 @@ export default function Home() {
 
 
       </div>
-    </>
   );
 }

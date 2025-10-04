@@ -1,8 +1,12 @@
-import { Helmet } from 'react-helmet-async';
-import { generateMetaTags, generateStructuredData } from '../../utils/seo';
+// SEO is now handled in index.htmlimport { Helmet } from 'react-helmet-async';
+
+// This is a placeholder component to prevent build errorsimport { generateMetaTags, generateStructuredData } from '../../utils/seo';
 
 export default function SEOHead({ page = {} }) {
-  const metaTags = generateMetaTags(page);
+
+  return null;export default function SEOHead({ page = {} }) {
+
+}  const metaTags = generateMetaTags(page);
   const structuredData = generateStructuredData(page.type);
 
   return (
