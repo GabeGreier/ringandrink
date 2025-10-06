@@ -41,4 +41,4 @@ export const getProductPrice = (productType, sizeCategory, size) => {
   }
 };
 
-export const formatPrice = (price) => `$${price.toFixed(2)}`;
+export const formatPrice = (price) => `$${price.toFixed(2)} CAD`;

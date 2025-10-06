@@ -51,10 +51,10 @@ export const ProductCard = ({ product, onAddToCart }) => {
         />
       </div>
       
-      <div className="p-4">
-        <h2 className="text-lg font-bold mb-2 text-gray-900">{product.name}</h2>
-        <p className="text-sm text-gray-600 mb-2 line-clamp-2 leading-relaxed">{product.description}</p>
-        <p className="text-xl font-bold text-gray-800">${currentPrice.toFixed(2)}</p>
+      <div className="p-3 sm:p-4">
+        <h2 className="text-base sm:text-lg font-bold mb-2 text-gray-900">{product.name}</h2>
+        <p className="text-xs sm:text-sm text-gray-600 mb-2 line-clamp-2 leading-relaxed">{product.description}</p>
+        <p className="text-lg sm:text-xl font-bold text-gray-800">${currentPrice.toFixed(2)} CAD</p>
         
         {/* Color Selection */}
         <div className="mt-3" onClick={(e) => e.stopPropagation()}>
@@ -79,8 +79,8 @@ export const ProductCard = ({ product, onAddToCart }) => {
           </div>
         </div>
         
-        <div className="mt-4" onClick={(e) => e.stopPropagation()}>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+        <div className="mt-3 sm:mt-4" onClick={(e) => e.stopPropagation()}>
+          <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
             Size
           </label>
           
@@ -121,14 +121,14 @@ export const ProductCard = ({ product, onAddToCart }) => {
           </div>
 
           <select 
-            className="w-full border border-gray-300 rounded-md py-2 px-3"
+            className="w-full border border-gray-300 rounded-md py-1.5 sm:py-2 px-2 sm:px-3 text-sm"
             value={selectedSize}
             onChange={(e) => setSelectedSize(e.target.value)}
           >
             <option value="">Select Size</option>
             {SIZES[sizeCategory].map(size => (
               <option key={size} value={size}>
-                {size} - ${getProductPrice(product.type, sizeCategory, size).toFixed(2)}
+                {size} - ${getProductPrice(product.type, sizeCategory, size).toFixed(2)} CAD
               </option>
             ))}
           </select>
@@ -136,7 +136,7 @@ export const ProductCard = ({ product, onAddToCart }) => {
 
         <Button 
           onClick={handleAddToCart}
-          className="mt-4 w-full"
+          className="mt-3 sm:mt-4 w-full text-sm sm:text-base py-2"
         >
           Add to Cart
         </Button>

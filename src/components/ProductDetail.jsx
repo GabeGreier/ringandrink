@@ -128,10 +128,10 @@ export default function ProductDetail() {
         <div className="space-y-6">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
-            <p className="text-2xl font-bold" style={{ color: '#296CAC' }}>${currentPrice.toFixed(2)}</p>
+            <p className="text-2xl font-bold" style={{ color: '#296CAC' }}>${currentPrice.toFixed(2)} CAD</p>
             {selectedSize && selectedSize !== '' && (
               <p className="text-sm text-gray-600 mt-1">
-                {sizeCategory === 'youth' ? 'Youth' : 'Adult'} {selectedSize} - ${currentPrice.toFixed(2)}
+                {sizeCategory === 'youth' ? 'Youth' : 'Adult'} {selectedSize} - ${currentPrice.toFixed(2)} CAD
               </p>
             )}
           </div>
@@ -167,7 +167,7 @@ export default function ProductDetail() {
               ))}
             </div>
             <p className="text-sm text-gray-500 mt-3 italic">
-              * Colors may vary from pictures.
+              * Colors may vary from pictures in the reference guide. Please note sports grey is the only preview image available.
             </p>
           </div>
 
@@ -182,7 +182,7 @@ export default function ProductDetail() {
                 className="hover:underline font-medium text-sm"
                 style={{ color: '#296CAC' }}
               >
-                🎨 Color Options ({sizeCategory === 'youth' ? 'Youth' : 'Adult'})
+                🎨 Color Options / Material ({sizeCategory === 'youth' ? 'Youth' : 'Adult'})
               </a>
               <a 
                 href={`/images/Sizing ${sizeCategory === 'youth' ? 'Youth' : 'Adult'}.png`}
@@ -201,8 +201,6 @@ export default function ProductDetail() {
             <ul className="space-y-2 text-gray-700">
               <li><span className="font-medium">Type:</span> {product.type === 'tee' ? 'T-Shirt' : 'Hoodie'}</li>
               <li><span className="font-medium">Selected Color:</span> {COLORS.find(c => c.id === selectedColor)?.name || 'Black'}</li>
-              <li><span className="font-medium">Material:</span> 100% Cotton</li>
-              <li><span className="font-medium">Care:</span> Machine wash cold, tumble dry low</li>
             </ul>
           </div>
 
@@ -256,7 +254,7 @@ export default function ProductDetail() {
                     style={selectedSize === size ? { backgroundColor: '#296CAC', borderColor: '#296CAC' } : {}}
                   >
                     <div className="text-sm">{size}</div>
-                    <div className="text-xs opacity-75">${sizePrice}</div>
+                    <div className="text-xs opacity-75">${sizePrice} CAD</div>
                   </button>
                 );
               })}
@@ -267,12 +265,18 @@ export default function ProductDetail() {
           </div>
 
           {/* Add to Cart */}
-          <div className="border-t border-gray-200 pt-6">
+          <div className="border-t border-gray-200 pt-6 space-y-3">
             <Button 
               onClick={handleAddToCart}
               className="w-full py-4 text-lg font-semibold"
             >
               Add to Cart
+            </Button>
+            <Button 
+              onClick={() => navigate('/store')}
+              className="w-full py-3 text-base font-medium bg-gray-200 text-gray-800 hover:bg-gray-300"
+            >
+              Continue Shopping
             </Button>
           </div>
         </div>

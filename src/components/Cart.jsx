@@ -53,17 +53,17 @@ export default function Cart() {
     const orderSummary = cartItems
       .map(item => {
         const colorInfo = item.colorName ? `, Color: ${item.colorName}` : '';
-        return `${item.quantity}x ${item.name} (Size: ${item.size}${colorInfo}) - $${(item.price * item.quantity).toFixed(2)}`;
+        return `${item.quantity}x ${item.name} (Size: ${item.size}${colorInfo}) - $${(item.price * item.quantity).toFixed(2)} CAD`;
       })
       .join('\n');
 
     const shippingInfo = shippingOption === 'shipping' 
-      ? `\n\nSHIPPING ADDRESS:\n${customerInfo.firstName} ${customerInfo.lastName}\n${customerInfo.address}\n${customerInfo.city}, ${customerInfo.province} ${customerInfo.postalCode}\n${customerInfo.country}`
+      ? `\n\nSHIPPING ADDRESS:\n${customerInfo.firstName} ${customerInfo.lastName}\n${customerInfo.address}\n${customerInfo.city}, ${customerInfo.province} ${customerInfo.postalCode}\n${customerInfo.country}\n\n*Shipping only available within Canada*`
       : '\n\nPICKUP SELECTED (Free)';
 
     const customerDetails = `\n\nCUSTOMER INFORMATION:\nName: ${customerInfo.firstName} ${customerInfo.lastName}\nEmail: ${customerInfo.email}\nPhone: ${customerInfo.phone}`;
 
-    const fullOrderDetails = `ORDER SUMMARY:\n${orderSummary}\n\nSubtotal: $${getCartTotal().toFixed(2)}\nShipping: ${shippingOption === 'shipping' ? '$20.00' : 'Free (Pickup)'}\nTotal: $${totalWithShipping.toFixed(2)}${shippingInfo}${customerDetails}`;
+    const fullOrderDetails = `ORDER SUMMARY:\n${orderSummary}\n\nSubtotal: $${getCartTotal().toFixed(2)} CAD\nShipping: ${shippingOption === 'shipping' ? '$20.00 CAD' : 'Free (Pickup)'}\nTotal: $${totalWithShipping.toFixed(2)} CAD${shippingInfo}${customerDetails}`;
 
     // Navigate to contact form with order details
     navigate('/contact', {
@@ -127,7 +127,7 @@ export default function Cart() {
                 {item.colorName && (
                   <p className="text-gray-600">Color: {item.colorName}</p>
                 )}
-                <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                <p className="text-gray-600">${item.price.toFixed(2)} CAD</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -225,8 +225,8 @@ export default function Cart() {
               className="text-blue-600"
             />
             <div>
-              <div className="font-medium">Shipping ($20 Flat Rate)</div>
-              <div className="text-sm text-gray-600">Delivered to your address</div>
+              <div className="font-medium">Shipping ($20 CAD Flat Rate)</div>
+              <div className="text-sm text-gray-600">Delivered to your address (Canada only)</div>
             </div>
           </label>
         </div>
@@ -294,15 +294,15 @@ export default function Cart() {
         <div className="bg-gray-50 p-6 rounded-lg">
           <div className="flex justify-between items-center mb-2">
             <span>Subtotal:</span>
-            <span>${getCartTotal().toFixed(2)}</span>
+            <span>${getCartTotal().toFixed(2)} CAD</span>
           </div>
           <div className="flex justify-between items-center mb-2">
             <span>{shippingOption === 'shipping' ? 'Shipping:' : 'Pickup:'}</span>
-            <span>{shippingOption === 'shipping' ? '$20.00' : 'Free'}</span>
+            <span>{shippingOption === 'shipping' ? '$20.00 CAD' : 'Free'}</span>
           </div>
           <div className="flex justify-between items-center font-semibold text-lg border-t pt-2">
             <span>Total:</span>
-            <span>${totalWithShipping.toFixed(2)}</span>
+            <span>${totalWithShipping.toFixed(2)} CAD</span>
           </div>
         </div>
         

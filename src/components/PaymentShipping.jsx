@@ -33,10 +33,10 @@ export default function PaymentShipping() {
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">Shipping</h2>
           <div className="bg-white border border-gray-200 rounded-lg p-6">
             <p className="text-gray-700 mb-4">
-              We ship via Canada Post with a flat rate of $20.
+                            We ship via Canada Post with a flat rate of $20 CAD. Shipping is only available within Canada. We are only shipping Canada wide.
             </p>
             <p className="text-gray-700">
-              Please double-check your shipping address before submitting your order. Any undeliverable packages due to incorrect address information will be reshipped at the buyer's expense.
+              Please double-check your shipping address before submitting your order. Any undeliverable packages due to incorrect address information will be reshipped at the buyer's expense. 
             </p>
           </div>
         </section>
