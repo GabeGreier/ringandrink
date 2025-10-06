@@ -161,7 +161,8 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition duration-200"
+          className="w-full text-white py-3 px-4 rounded-md hover:opacity-90 transition duration-200"
+          style={{ backgroundColor: '#296CAC' }}
         >
           Send Order Request
         </button>
