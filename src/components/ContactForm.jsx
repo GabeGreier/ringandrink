@@ -35,7 +35,7 @@ export default function ContactForm() {
     // Hide popup after 4 seconds
     setTimeout(() => {
       setShowSuccessPopup(false);
-    }, 4000);
+    }, 30000);
     
     // Here you would typically send this to your email
     const mailtoBody = `Order Number: ${orderNumber}%0D%0A%0D%0AName: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0ASelected Items: ${formData.selectedItems}%0D%0AMessage: ${formData.message}%0D%0A%0D%0ANote: Delivery only available within Canada`;
@@ -68,7 +68,7 @@ export default function ContactForm() {
               <div className="ml-3">
                 <h3 className="text-lg font-medium text-gray-900">Order Submitted!</h3>
                 <p className="text-sm text-gray-600 mt-1">
-                  We'll get back to you about your order, details, and shipping
+                  We'll get back to you with details on your order, payment, and delivery options shortly.
                 </p>
               </div>
               <button 
