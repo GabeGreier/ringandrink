@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 export default function ContactForm() {
   const location = useLocation();
   const { clearCart } = useCart();
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +29,14 @@ export default function ContactForm() {
     // Generate unique order number
     const orderNumber = `RR${Date.now().toString().slice(-8)}`;
     
+    // Show success popup
+    setShowSuccessPopup(true);
+    
+    // Hide popup after 4 seconds
+    setTimeout(() => {
+      setShowSuccessPopup(false);
+    }, 4000);
+    
     // Here you would typically send this to your email
     const mailtoBody = `Order Number: ${orderNumber}%0D%0A%0D%0AName: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0ASelected Items: ${formData.selectedItems}%0D%0AMessage: ${formData.message}%0D%0A%0D%0ANote: Delivery only available within Canada`;
     const mailtoLink = `mailto:ring.rink.co@gmail.com?subject=New Order from ${formData.name} - Order #${orderNumber}&body=${mailtoBody}`;
@@ -45,6 +54,36 @@ export default function ContactForm() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
+      {/* Success Popup */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 px-4">
+          <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setShowSuccessPopup(false)}></div>
+          <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full relative z-10 border-l-4 border-green-500">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <h3 className="text-lg font-medium text-gray-900">Order Submitted!</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  We'll get back to you about your order, details, and shipping
+                </p>
+              </div>
+              <button 
+                onClick={() => setShowSuccessPopup(false)}
+                className="ml-auto flex-shrink-0 text-gray-400 hover:text-gray-600"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      
       <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
       
       <form onSubmit={handleSubmit} className="space-y-6">
